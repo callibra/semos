@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOGRAPHY</title>
+</head>
+<style>
+body{
+    font-family: sans-serif;
+    background-color: #ffffff;
+}
+
+.heading{
+    text-align: center;
+}
+
+.heading h1{
+    font-size: 50px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.heading p{
+    display: inline-block;
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 30px;
+    width: 25%;
+}
+
+.about-us{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 55px;
+}
+
+.content{
+    padding: 35px;
+}
+
+.content p{
+    max-width: 400px;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.button{
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #555555;
+    color: white;
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 5px;
+    position: flex;
+    height: 80px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+@media(max-width: 768px){
+.about-us{
+    flex-direction: column;
+    }
+.about-us img{
+    flex: 0 100%;
+    max-width: 100%;
+    }
+.content {
+    flex: 0 100%;
+    max-width: 100%;
+    padding: 15px;
+    }
+}
+</style>
+<body>
+    <div class="heading">
+        <h1>BIOGRAPHY</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis suscipit velit. Ut vel augue venenatis dui facilisis dictum at at est. </p>
+        <hr width="888px">
+        <buttton class="button">CONTACT US</buttton>
+    </div>
+    <section class="about-us">
+        <img src="img/pic2.png" width="355px" height="355px"/>
+        <div class="content">
+        <p width="222px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis suscipit velit. Ut vel augue venenatis dui facilisis dictum at at est.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis suscipit velit. Ut vel augue venenatis dui facilisis dictum at at est.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis.</P>
+        </div>
+    </section>
+    <footer>
+        <p style="color: white;"><a href="#" style="color: #a3bed9;">Website Templates </a>created with <a href="#" style="color: #a3bed9;">Website Builder Software.</a></p>
+    </footer>
+</body>
+</html>
