@@ -1,0 +1,239 @@
+body{
+    padding: 0;
+    margin: 100px;
+    font-family: sans-serif;
+    background-image: url('./img/pic.png'); 
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 18px;
+    color: #272727;
+}
+
+span{
+    font-size: 20px;
+    color: #adadad;
+    margin: 30px;
+}
+
+.container{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: #000;
+    width: 800px;
+    padding: 20px;
+    box-shadow: 1px 1px 15px 2px rgba(0,0,0,0.75);
+}   
+
+.box{
+    height: 460px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-color: #c1fdfa;
+    border-radius: 10px;
+    padding: 40px;
+    gap: 10px;
+}
+
+.kocka{
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 225px;
+    height: 225px;
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.75);
+}
+
+.dotred{
+    position: absolute;
+    background-color: #ff0000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.dot{
+    position: absolute;
+    background-color:#000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.kocka:first-child{
+    .dotred{
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     margin: auto;
+ }
+}
+  
+  .kocka:nth-child(2){
+    .dot{
+      &:first-child{
+        top: 20px;
+        left: 20px;
+      }
+      &:last-child{
+        bottom: 20px;
+        right: 20px;
+     }
+ }
+}
+  
+  .kocka:nth-child(3){
+    .dot{
+      &:first-child{
+        top: 15px;
+        left: 15px;
+      }
+      &:nth-child(2){
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+      &:last-child{
+        bottom: 15px;
+        right: 15px;
+      }
+ }
+}
+  
+  .kocka:nth-child(4){
+    .dot{  
+      &:first-child{
+        top: 15px;
+        left: 15px;
+      }
+      &:nth-child(2){
+        top: 15px;
+        right: 15px;
+      }
+      &:nth-child(3){
+        bottom: 15px;
+        left: 15px;
+      }
+      &:last-child{
+        bottom: 15px;
+        right: 15px;
+      }
+ }
+}
+  
+  .kocka:nth-child(5){
+    .dot{  
+      &:first-child{
+        top: 15px;
+        left: 15px;
+      }
+      &:nth-child(2){
+        top: 15px;
+        right: 15px;
+      }
+      &:nth-child(3){
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+      &:nth-child(4){
+        bottom: 15px;
+        left: 15px;
+      }
+      &:last-child{
+        bottom: 15px;
+        right: 15px;
+      }
+ }
+}
+  
+  .kocka:nth-child(6){
+    .dot{  
+      &:first-child{
+        top: 15px;
+        left: 15px;
+      }
+      &:nth-child(2){
+        top: 15px;
+        right: 15px;
+      }
+      &:nth-child(3){
+        top: 15px;
+        left: 92px;
+        margin: auto;
+      }
+      &:nth-child(4){
+        bottom: 15px;
+        left: 92px;
+        margin: auto;
+      }
+      &:nth-child(5){
+        bottom: 15px;
+        left: 15px;
+      }
+      &:last-child{
+        bottom: 15px;
+        right: 15px;
+      }
+ }
+}
+
+.sliki{
+    display: flex;
+    align-items: center;
+    margin: 50px 20px 50px 0px;
+    position: relative;
+}
+
+.sliki img{
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+#text{
+    position: absolute;
+    left: 300px;
+}
+
+#img1{
+    position: relative;
+    left: 0;
+}
+
+#img2{
+    position: absolute;
+    left: 50px;
+}
+
+#img3{
+    position: absolute;
+    left: 100px;
+}
+
+#img4{
+    position: absolute;
+    left: 150px;
+}
+
+#img5{
+    position: absolute;
+    left: 200px;
+}
+
+#img6{
+    position: absolute;
+    left: 250px;
+}
