@@ -43,12 +43,10 @@
 }
 
 .main{
-    position: relative;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 	padding: 20px 0;
 	margin: 0 0 0 4%;
-	display: inline;
 }
 
 .main h2 { 
@@ -59,11 +57,14 @@
     width: 600px;
 }
 
+.centar{
+	grid-column: 1 / 2;
+}
+
 .side{
-    position: absolute;
-    top: 50px;
+	grid-column: 2 / 3;
+	top: 50px;
     left: 400px;
-	display: inline;
 }
 
 .side h3{ 
@@ -78,12 +79,12 @@
 }
 
 @media (max-width: 800px) {
-    .side{
-    position: relative;
-    top: -2px;
-    left: 5px;
-	display: inline;
-    }
+    .main{
+		display: flex;
+		flex-direction: column;
+		padding: 20px 0;
+		margin: 0 0 0 4%;
+	}
     .main p{
         width: 400px;
     }
