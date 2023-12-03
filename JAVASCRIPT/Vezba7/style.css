@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+th, td {
+    border: 3px solid #bdbdbd;
+    padding: 8px;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+th {
+    background-color: #e6e197;
+}
+
+button {
+    margin-top: 10px;
+    background-color: rgb(201, 34, 34);
+    color: rgb(250, 250, 250);
+    font-size: 1rem;
+}
