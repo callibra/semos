@@ -1,0 +1,32 @@
+html {
+    background-color: rgb(44, 44, 44);
+}
+
+h1 {
+    color: rgb(228, 228, 228);
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #F33838;
+    color: #F5FF77;
+}
+
+td {
+    background-color: #4D4D4D;
+    color: #F0F0F0;
+}
