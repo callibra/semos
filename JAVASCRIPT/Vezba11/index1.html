@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Vezba</title>
+  <style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-container {
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+  
+.image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #3498db;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.btn-2 {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #2ecc71;
+  transition: background-color 0.3s ease;
+}
+
+.btn-2:hover {
+  background-color: #27ae60;
+}
+  </style>
+</head>
+<body>
+  <button class="btn" onclick="dodadiSlika()">Dodadi Sliki</button>
+  <button class="btn-2" onclick="dodadiStilovi()">Dodadi Stilovi</button>
+  
+  <div class="image-container" id="imageContainer"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

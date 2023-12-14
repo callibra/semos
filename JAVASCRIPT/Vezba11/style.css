@@ -1,0 +1,137 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    background-color: #2e2e2e;
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-size: 45px;
+    font-weight: bold;
+    color: #3E3F68;
+}
+
+p{
+    font-size: 30px;
+    color: #8A98BA;
+}
+
+span{
+    font-size: 20px;
+    color: #ffffff;
+    margin: 30px;
+}
+
+.background-image {
+    width: 100%;
+    height: 60%;
+    background: url('./img/bg.jpg') center/cover;
+}
+
+.rewards-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.rewards-button button {
+    padding: 10px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.side-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.side-button button {
+    padding: 10px;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.container{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: #000;
+    width: 800px;
+    padding: 20px;
+    box-shadow: 1px 1px 15px 2px rgba(0,0,0,0.75);
+}   
+
+.sliki{
+    display: flex;
+    align-items: center;
+    margin: 50px 20px 50px 0px;
+    position: relative;
+}
+
+.sliki img{
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+#text{
+    position: absolute;
+    right: -10px;
+}
+
+#img1{
+    position: absolute;
+    right: 0;
+}
+
+#img2{
+    position: absolute;
+    right: 50px;
+}
+
+#img3{
+    position: absolute;
+    right: 100px;
+}
+
+#img4{
+    position: absolute;
+    right: 150px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    background: linear-gradient(to right, #FF5673, #FF8C48);
+  }
+
+.btn-2 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    background: #848DFF;
+}
