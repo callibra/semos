@@ -1,7 +1,7 @@
 [
     {"ime": "Marko", "prezime": "Markovic", "ocena": 9.0, "grad": "Skopje"},
     {"ime": "Ana", "prezime": "Ivanova", "ocena": 8.5, "grad": "Bitola"},
-    {"ime": "Stefan", "prezime": "Stefanov", "ocena": 9.7, "grad": "Ohrid"},
+    {"ime": "Robert", "prezime": "Apostolov", "ocena": 9.7, "grad": "Ohrid"},
     {"ime": "Jovana", "prezime": "Jovanova", "ocena": 8.2, "grad": "Veles"}
-  ]
+]
   
