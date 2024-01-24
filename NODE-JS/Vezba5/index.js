@@ -1,71 +1,81 @@
 const modules = require('./modules');
 
-const addStudent = async () => {
+// Dodavanje nov student
+const addNewStudent = async () => {
   try {
     const students = await modules.fileRead('./students.json');
     const studentData = JSON.parse(students);
-    studentData.push({
-      name: 'Ivan',
-      surname: 'Ivanov',
-      grade: 8.5,
-      city: 'Stip',
-    });
-    const studentJSON = JSON.stringify(studentData, null, 2);
-    await modules.fileWrite('./students.json', studentJSON);
-    console.log('Student added');
+    const newStudent = {
+      name: 'Petar',
+      surname: 'Petrov',
+      grade: 7.9,
+      city: 'Skopje',
+    };
+    studentData.push(newStudent);
+    const updatedStudentJSON = JSON.stringify(studentData, null, 2);
+    await modules.fileWrite('./students.json', updatedStudentJSON);
+    console.log('Nov student dodaden.');
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
-addStudent();
+addNewStudent();
 
-const deleteStudent = async () => {
+// Brisenje na student
+const deleteSpecificStudent = async () => {
   try {
     const students = await modules.fileRead('./students.json');
     let studentData = JSON.parse(students);
+    const studentToDelete = 'Petar'; 
     studentData = studentData.filter(
-      (student) => student.name !== 'Paul' && student.surname !== 'McCartney'
+      (student) => student.name !== studentToDelete
     );
-    const studentJSON = JSON.stringify(studentData, null, 2);
-    await modules.fileWrite('./students.json', studentJSON);
-    console.log('Student deletion completed!');
+    const updatedStudentJSON = JSON.stringify(studentData, null, 2);
+    await modules.fileWrite('./students.json', updatedStudentJSON);
+    console.log('Student izbrisan.');
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
-deleteStudent();
+deleteSpecificStudent();
 
-const renameStudent = async () => {
+// Promena na ocena
+const changeGradeOfStudent = async () => {
   try {
     const students = await modules.fileRead('./students.json');
-    const studentData = JSON.parse(students);
-    const renameStudents = studentData.map((student) => {
-      if (student.name === 'John') {
-        return { ...student, name: 'Yoko' };
+    let studentData = JSON.parse(students);
+    const studentToChange = 'Ana'; 
+    const newGrade = 9.0; 
+
+    studentData = studentData.map((student) => {
+      if (student.name.toLowerCase() === studentToChange.toLowerCase()) {
+        return { ...student, grade: newGrade };
       }
       return student;
     });
-    const studentJSON = JSON.stringify(renameStudents, null, 2);
-    await modules.fileWrite('./students.json', studentJSON);
-    console.log('Student renamed!');
+
+    const updatedStudentJSON = JSON.stringify(studentData, null, 2);
+    await modules.fileWrite('./students.json', updatedStudentJSON);
+    console.log('Ocena studenta promenjena.');
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
-renameStudent();
+changeGradeOfStudent();
 
-const readStudents = async () => {
+// Lista na studenti
+const readAllStudents = async () => {
   try {
     const students = await modules.fileRead('./students.json');
     const studentData = JSON.parse(students);
-    console.log(`Students enrolled in our school are:`);
+    console.log(`Svi studenti su:`);
     console.log(studentData);
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
-readStudents();
+readAllStudents();
