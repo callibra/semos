@@ -6,15 +6,15 @@ const addNewStudent = async () => {
     const students = await modules.fileRead('./students.json');
     const studentData = JSON.parse(students);
     const newStudent = {
-      name: 'Petar',
-      surname: 'Petrov',
-      grade: 7.9,
-      city: 'Skopje',
+      ime: 'Petar',
+      prezime: 'Petrov',
+      ocena: 7.9,
+      grad: 'Skopje',
     };
     studentData.push(newStudent);
     const updatedStudentJSON = JSON.stringify(studentData, null, 2);
     await modules.fileWrite('./students.json', updatedStudentJSON);
-    console.log('Nov student dodaden.');
+    console.log('Noviot student e dodaden.');
   } catch (err) {
     console.error(err);
   }
@@ -27,13 +27,13 @@ const deleteSpecificStudent = async () => {
   try {
     const students = await modules.fileRead('./students.json');
     let studentData = JSON.parse(students);
-    const studentToDelete = 'Petar'; 
+    const studentToDelete = 'Jovana'; 
     studentData = studentData.filter(
-      (student) => student.name !== studentToDelete
+      (student) => student.ime.toLowerCase() !== studentToDelete.toLowerCase()
     );
     const updatedStudentJSON = JSON.stringify(studentData, null, 2);
     await modules.fileWrite('./students.json', updatedStudentJSON);
-    console.log('Student izbrisan.');
+    console.log('Studentot e izbrisan.');
   } catch (err) {
     console.error(err);
   }
@@ -50,15 +50,15 @@ const changeGradeOfStudent = async () => {
     const newGrade = 9.0; 
 
     studentData = studentData.map((student) => {
-      if (student.name.toLowerCase() === studentToChange.toLowerCase()) {
-        return { ...student, grade: newGrade };
+      if (student.ime.toLowerCase() === studentToChange.toLowerCase()) {
+        return { ...student, ocena: newGrade };
       }
       return student;
     });
 
     const updatedStudentJSON = JSON.stringify(studentData, null, 2);
     await modules.fileWrite('./students.json', updatedStudentJSON);
-    console.log('Ocena studenta promenjena.');
+    console.log('Ocena na studentot e promeneta.');
   } catch (err) {
     console.error(err);
   }
@@ -71,7 +71,7 @@ const readAllStudents = async () => {
   try {
     const students = await modules.fileRead('./students.json');
     const studentData = JSON.parse(students);
-    console.log(`Svi studenti su:`);
+    console.log(`Lista na studenti:`);
     console.log(studentData);
   } catch (err) {
     console.error(err);
