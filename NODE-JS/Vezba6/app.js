@@ -19,6 +19,7 @@ app.post('/wordCount', (req, res) => {
   // Vrati rezultat
   res.send(`Text contains ${wordCount} words.`);
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //? Da se kreira ruta koja kje presmetuva hipotenuza na triagolnik poznavajki gi dvete pomali strani so get i post metoda
 
@@ -47,6 +48,7 @@ app.post('/calculateHypotenuse', (req, res) => {
 
   res.send(`The hypotenuse is: ${hypotenuse}`);
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //? Da se kreira ruta koja kje presmetuva perimetar i plostina na pravoagolnik so poznati dve strani so get i post metoda
 
@@ -77,6 +79,7 @@ app.get('/rectangle/:a/:b', (req, res) => {
   
     res.send(`Perimeter: ${perimeter}, Area: ${area}`);
   });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //? Da se kreira ruta koja kako parametar kje prima godina na datum i godina na ragjanje i koja kako respond kje vrakja horoskopski znak soodveten so mesecot so get i post metoda
 
@@ -126,6 +129,7 @@ app.get('/horoscope/:birthYear/:birthMonth/:currentYear/:currentMonth', (req, re
   
     return zodiacSigns[signIndex];
   }
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //? da se kreira ruta koja kje presmetuva dali nekoe ime e parno neprano, i kolku karakteri ima i kolku samoglaski so post metoda
 
@@ -190,3 +194,4 @@ const PORT = 10000;
 app.listen(PORT, () => {
   console.log(`Server initiated on port ${PORT}`);
 });
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
