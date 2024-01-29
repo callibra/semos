@@ -189,9 +189,68 @@ app.get('/convertCurrency/:from/:to/:amount', (req, res) => {
   
     return null;
   }
-  // Server
-const PORT = 10000;
-app.listen(PORT, () => {
-  console.log(`Server initiated on port ${PORT}`);
-});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//? da se kreira kalkulator
+
+const calculate = (operator, operand1, operand2) => {
+  switch (operator) {
+    case '+':
+      return operand1 + operand2;
+    case '-':
+      return operand1 - operand2;
+    case '/':
+      return operand2 === 0 ? null : operand1 / operand2;
+    case '*':
+      return operand1 * operand2;
+    default:
+      return null;
+  }
+};
+
+// Kalkulator GET metoda
+app.get('/calculator/:op/:a/:b', (req, res) => {
+  const { op, a, b } = req.params;
+  const operand1 = Number(a);
+  const operand2 = Number(b);
+
+  if (isNaN(operand1) || isNaN(operand2)) {
+    return res.status(400).send('Invalid operands');
+  }
+
+  const result = calculate(op, operand1, operand2);
+
+  if (result === null) {
+    return res.status(400).send('Invalid operator or division by zero');
+  }
+
+  res.send(String(result));
+});
+
+// Kalkulator POST metoda
+app.post('/calculator', (req, res) => {
+  const { op, a, b } = req.body;
+  const operand1 = Number(a);
+  const operand2 = Number(b);
+
+  if (isNaN(operand1) || isNaN(operand2)) {
+    return res.status(400).send('Invalid operands');
+  }
+
+  const result = calculate(op, operand1, operand2);
+
+  if (result === null) {
+    return res.status(400).send('Invalid operator or division by zero');
+  }
+
+  res.send(String(result));
+});
+
+// Server
+ const PORT = 10000;
+ app.listen(PORT, () => {
+   console.log(`Server initiated on port ${PORT}`);
+ });
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
