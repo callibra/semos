@@ -20,13 +20,10 @@ exports.getStudenti = async (req, res) => {
 };
 
 exports.getDeleteStudent = async (req, res) => {
-    const index = req.params.i;
-  
-    // Check if the index is valid
-    if (index >= 0) {
-      await studentiModel.remove(index);
-    }
-  
-    // Redirect to the /studenti route after deletion
-    res.redirect('/studenti');
-  };
+  const index = req.params.i;
+
+  if (index >= 0) {
+    await studentiModel.remove(index);
+  }
+  res.redirect('/studenti');
+};

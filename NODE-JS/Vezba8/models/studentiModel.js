@@ -36,3 +36,21 @@ exports.add = async (data) => {
   fileData.push(data);
   await writeFile(JSON.stringify(fileData));
 };
+
+exports.remove = async (index) => {
+  try {
+    const file = await readFile();
+    const fileData = JSON.parse(file);
+
+    if (index >= 0 && index < fileData.length) {
+      fileData.splice(index, 1);
+      await writeFile(JSON.stringify(fileData));
+      console.log(`Student at index ${index} removed successfully.`);
+    } else {
+      console.log(`Invalid index: ${index}`);
+    }
+  } catch (error) {
+    console.error('Error removing student:', error);
+    throw error;
+  }
+};
