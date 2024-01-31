@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORMULAR</title>
+  </head>
+  <body>
+    <h1>FORMULAR</h1>
+    <%- include('partials/headers') %>
+    <form action="/form" method="post">
+      <input type="text" name="ime" placeholder="ime" />
+      <input type="text" name="prezime" placeholder="prezime" />
+      <input type="number" name="prosek" placeholder="prosek" />
+      <button type="submit">Podnesi</button>
+    </form>
+  </body>
+</html>
