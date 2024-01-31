@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studenti</title>
+  </head>
+  <body>
+    <h1>STUDENTI</h1>
+    <%- include('partials/headers') %>
+    <table border="1" width="100%">
+      <tr>
+        <th>IME</th>
+        <th>PREZIME</th>
+        <th>PROSEK</th>
+        <th>BRISNJE</th>
+      </tr>
+      <% data.forEach((student, i) => { %>
+      <tr>
+        <td><%= student.ime %></td>
+        <td><%= student.prezime %></td>
+        <td><%= student.prosek %></td>
+        <td><a href="/brishi/<%= i %>">Brishi</a></td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>
