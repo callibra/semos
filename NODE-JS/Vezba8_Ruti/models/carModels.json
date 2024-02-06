@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1707173723038,
+    "carModel": "alfa romeo",
+    "productionYear": "2014",
+    "mileage": "123900"
+  },
+  {
+    "id": 1707173735802,
+    "carModel": "bmw 330",
+    "productionYear": "2013",
+    "mileage": "3451222"
+  },
+  {
+    "id": 1707173748523,
+    "carModel": "mercedes",
+    "productionYear": "2020",
+    "mileage": "340000"
+  },
+  {
+    "id": 1707173762078,
+    "carModel": "volvo c60",
+    "productionYear": "2008",
+    "mileage": "234111"
+  },
+  {
+    "id": 1707173998808,
+    "carModel": "audi a6",
+    "productionYear": "2022",
+    "mileage": "123000"
+  },
+  {
+    "id": 1707177146801,
+    "carModel": "vw golf",
+    "productionYear": "2016",
+    "mileage": "4555555"
+  }
+]

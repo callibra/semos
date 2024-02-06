@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1707178305965,
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "city": "Skopje",
+    "points": "99"
+  },
+  {
+    "id": 1707178328465,
+    "firstName": "Aleksandar",
+    "lastName": "Ivanov",
+    "city": "Bitola",
+    "points": "89"
+  },
+  {
+    "id": 1707178354438,
+    "firstName": "Dejan",
+    "lastName": "Ivanov",
+    "city": "Stip",
+    "points": "95"
+  },
+  {
+    "id": 1707178578355,
+    "firstName": "Martin",
+    "lastName": "Ivanov",
+    "city": "Ohrid",
+    "points": "88"
+  }
+]
