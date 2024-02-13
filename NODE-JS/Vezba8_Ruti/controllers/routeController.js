@@ -35,8 +35,6 @@ function deletePointsData(req, res) {
   res.redirect('/points');
 }
 
-//Kalkulator
-
 module.exports = {
   getCarModelsData,
   postCarModelsData,

@@ -40,8 +40,6 @@ function deleteData(route, id) {
   }
 }
 
-//Kalkulator
-
 module.exports = { getData, saveData, appendData, deleteData, };
 
 
