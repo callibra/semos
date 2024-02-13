@@ -34,5 +34,11 @@
     "carModel": "vw golf",
     "productionYear": "2016",
     "mileage": "4555555"
+  },
+  {
+    "id": 1707836087797,
+    "carModel": "opel isignia",
+    "productionYear": "2024",
+    "mileage": "155011"
   }
 ]

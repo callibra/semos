@@ -1,28 +1,22 @@
-<!-- views/carModels.ejs -->
 <html>
 <head>
   <title>Car Models</title>
 </head>
 <body>
   <h1>Car Models</h1>
-  
   <form method="post" action="/carModels">
     <label for="carModel">Car Model:</label>
     <input type="text" id="carModel" name="carModel" required>
-
     <label for="productionYear">Production Year:</label>
     <select id="productionYear" name="productionYear" required>
       <% for(let year = new Date().getFullYear(); year >= 1900; year--) { %>
         <option value="<%= year %>"><%= year %></option>
       <% } %>
     </select>
-
     <label for="mileage">Mileage (in km):</label>
     <input type="number" id="mileage" name="mileage" required>
-
     <button type="submit">Submit</button>
   </form>
-
   <h2>Car Models Data</h2>
   <table border="1">
     <thead>
@@ -44,3 +38,4 @@
   </table>
 </body>
 </html>
+
