@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <% if (movies.length === 0) { %>
+    <p>No movies found.</p>
+
+    <% } else {%> <% movies.forEach(movie =>{%>
+    <div class="film">
+      <a href="/viewMovies/<%=movie._id%>">
+        <h2 class="film-title"><%= movie.title %></h2></a
+      >
+      <p><%= movie.year %></p>
+    </div>
+    <%}); %> <% } %>
+  </body>
+</html>
