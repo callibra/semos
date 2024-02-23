@@ -1,0 +1,26 @@
+const express = require('express')
+const database = require('./database/database');
+const articleRouter = require("./routes/articles")
+const Article = require('./models/article')
+const mongoose = require('mongoose')
+const methodOverride = require('method-override')
+const app = express()
+
+database.init();
+
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
+app.get('/', async(req, res) => {
+    const articles =await Article.find().sort({ createdAt:'desc'})
+    res.render('articles/index', { articles: articles })
+})
+
+app.use('/articles', articleRouter)
+
+app.listen(process.env.PORT, (err) => {
+    if (err) {
+      return console.log('Could not start service');
+    }
+    console.log(`Service started successfully on port ${process.env.PORT}`);
+  });
