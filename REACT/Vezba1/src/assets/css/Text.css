@@ -1,0 +1,17 @@
+.text {
+    background-color: rgb(238, 255, 0);
+    display: grid;
+    justify-content: center;
+}
+
+#text1 {
+    color:blue
+}
+
+#text2 {
+    color: brown;
+}
+
+#text3 {
+    color:aqua
+}
