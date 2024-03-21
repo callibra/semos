@@ -1,0 +1,32 @@
+#movies {
+  font-family: Arial, sans-serif;
+}
+
+.movie {
+  margin-bottom: 20px;
+}
+
+.movie h3 {
+  margin-bottom: 5px;
+}
+
+.movie img {
+  display: block;
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.star-rating {
+  display: inline-block;
+  background: url('https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.4.0/collection/components/icon/svg/star.svg');
+  background-size: contain;
+  width: 100px;
+  height: 20px;
+}
+
+.star-rating:hover {
+  background: url('https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.4.0/collection/components/icon/svg/star-fill.svg');
+}
+
+
