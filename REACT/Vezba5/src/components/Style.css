@@ -1,0 +1,39 @@
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #e3f2fd; 
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+span {
+    flex: 1;
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #2196f3; 
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #1976d2; 
+}
+
