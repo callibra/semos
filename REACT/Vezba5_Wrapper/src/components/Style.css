@@ -1,0 +1,45 @@
+#login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  #login form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #login input[type="text"],
+  #login input[type="password"],
+  #login button,
+  #login select {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  #login button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #login button:hover {
+    background-color: #0056b3;
+  }
+  
+  #login .toggle-password {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 14px;
+  }
+  
+  #login .toggle-password:hover {
+    text-decoration: underline;
+  }
+  
