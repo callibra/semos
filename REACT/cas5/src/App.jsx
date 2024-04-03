@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 // import { Domasna } from './components/Domasna';
-// import {Login} from './components/Login';
+import {Login} from './components/Login';
 import { Todos } from './components/Todos';
 
 export function App(){
@@ -35,22 +35,32 @@ export function App(){
         )
     ])
   }
+  function deleteTodo(todoId){
+    setTodos([
+      ...todos.filter(item=> item.id !== todoId)
+    ])
+  }
 
   function addTodo(){
+    if(newTodo.trim() !== ""){
 
-    let newObject = {
-      id: todos.length + 1,
-      text: newTodo,
-      done: false
+      let newObject = {
+        id: Math.ceil(Math.random()*1000),
+        text: newTodo,
+        done: false
+      }
+      
+      setTodos([...todos,newObject]);
+      setNewTodo("");
     }
-
-    setTodos([...todos,newObject]);
-    setNewTodo("");
+    else{
+      alert("Enter some value")
+    }
   }
   return(
     <div id="app">
       {/* <Domasna/> */}
-      {/* <Login/> */}
+      <Login/>
       <input
         type="text"
         placeholder='Enter new TODO'
@@ -58,7 +68,7 @@ export function App(){
         onChange={(e)=>{setNewTodo(e.target.value)}}
       />
       <button onClick={addTodo}>Add Todo</button>
-      <Todos listOfTodos={todos} markTodoAsDone={markTodoAsDone}/>
+      <Todos listOfTodos={todos} markTodoAsDone={markTodoAsDone} deleteTodo={deleteTodo}/>
       <h2>Car Model:{car.model}</h2>
       <h2>Car Year:{car.year}</h2>
       <button onClick={changeCar}>Change Car</button>

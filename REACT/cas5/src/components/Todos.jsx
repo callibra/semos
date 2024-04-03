@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Todos = ({listOfTodos,markTodoAsDone}) => {
+export const Todos = ({listOfTodos,markTodoAsDone,deleteTodo}) => {
     return(
         <ol>
             {listOfTodos.map(todo=>{
@@ -14,6 +14,7 @@ export const Todos = ({listOfTodos,markTodoAsDone}) => {
                             checked={todo.done}
                             onChange={()=>{markTodoAsDone(todo)}}
                         />
+                        <button onClick={()=>{deleteTodo(todo.id)}}>Delete</button>
                     </li>
                 )
             })}
@@ -23,5 +24,6 @@ export const Todos = ({listOfTodos,markTodoAsDone}) => {
 
 Todos.propTypes={
     listOfTodos:PropTypes.arrayOf(PropTypes.object).isRequired,
-    markTodoAsDone:PropTypes.func
+    markTodoAsDone:PropTypes.func,
+    deleteTodo: PropTypes.func
 }
