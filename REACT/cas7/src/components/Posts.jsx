@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export const Posts = () =>{
     const [posts,setPosts] = useState([]);
+    const [postBody,setPostBody] = useState({title:"",body:""});
 
     useEffect(()=>{
         axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -18,8 +19,27 @@ export const Posts = () =>{
       alert(deletedItem.status);
       setPosts([...posts.filter(post=>post.id !== postId)]);
     }
+
+    async function addPost(){
+        const addedItem = await axios.post('https://jsonplaceholder.typicode.com/posts',{
+        id:posts.length+1,
+        title:postBody.title,
+        body:postBody.body,
+        userId:posts.length+1});
+        console.log(addedItem.data);
+        setPostBody({title:"",body:""});
+        setPosts([...posts,addedItem.data])
+    }
     return(
         <div id="posts">
+            <p>Add new Post:</p>
+            <input type="text" placeholder='Enter Title' value={postBody.title} onChange={(e)=>{setPostBody({...postBody,title:e.target.value})}}/>
+            <br/>
+            <br/>
+            <input type="text" placeholder='Enter Body' value={postBody.body} onChange={(e)=>{setPostBody({...postBody,body:e.target.value})}}/>
+            <br/>
+            <br/>
+            <button onClick={addPost}>Add Post</button>
             <table border={1}>
                 <thead>
                     <tr>
