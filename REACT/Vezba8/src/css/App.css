@@ -1,0 +1,149 @@
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.image-container p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-size: 16px; 
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.image-container p:hover {
+    background-color: rgba(0, 0, 0, 0.9); 
+    box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.7); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
+}
+
+.image-holder {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-holder img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; 
+}
+
+.image-holder:hover img {
+    transform: scale(1.1); 
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-container {
+    max-width: 80%; 
+    max-height: 80%; 
+    overflow: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.popup-container img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto; 
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 55px;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.close-popup:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.delete-popup {
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.delete-popup:hover {
+    background-color: #ff7875;
+}
+
+#nav {
+    list-style-type: none;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#nav li {
+    margin-right: 20px;
+}
+
+#nav li:last-child {
+    margin-right: 0;
+}
+
+#nav li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 25px; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    background-color: #dedede; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+#nav li a:hover {
+    background-color: #fa8383; 
+    color: white; 
+}
