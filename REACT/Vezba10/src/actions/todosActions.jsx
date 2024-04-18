@@ -1,6 +1,6 @@
 import axios from "axios";
 import { TODOS_API_URL } from "../constants/constants";
-import { TODOS_REJECT, TODOS_RESOLVE, TODOS_DELETE} from "../constants/constants";
+import { TODOS_REJECT, TODOS_RESOLVE, TODOS_CHECKED, TODOS_DELETE } from "../constants/constants";
 
 export const todosResolve = (data) => ({
   type: TODOS_RESOLVE,
@@ -28,4 +28,7 @@ export const deleteTodo = (id) => ({
   payload: id,
 });
 
-
+export const toggleTodo = (id) => ({
+  type: TODOS_CHECKED,
+  payload: id,
+});

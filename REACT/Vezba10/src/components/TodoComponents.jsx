@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTodos, deleteTodo } from "../actions/todosActions";
+import { fetchTodos, deleteTodo, toggleTodo } from "../actions/todosActions";
 import Loading from "./Loading";
 import Error from "./Error"; 
 
@@ -23,6 +23,10 @@ const TodoComponents = () => {
     dispatch(deleteTodo(id));
   };
 
+  const handleCheckboxChange = (id) => {
+    dispatch(toggleTodo(id)); 
+  };
+
   if (loading) {
     return <Loading />;
   }
@@ -33,10 +37,19 @@ const TodoComponents = () => {
 
   return (
     <div className="todo-list">
-      {todos.map(({ id, title }, index) => (
+      {todos.map(({ id, title, completed }) => (
         <div className="todo-item" key={id}>
-          <p className="todo-title">{index + 1}. {title}</p>
-          <button className="delete-button" onClick={() => handleDelete(id)}>Delete</button>
+          <input
+            type="checkbox"
+            checked={completed}
+            onChange={() => handleCheckboxChange(id)} 
+          />
+          <p className={completed ? "todo-title completed" : "todo-title"}>
+            {id}. {title}
+          </p>
+          <button className="delete-button" onClick={() => handleDelete(id)}>
+            Delete
+          </button>
         </div>
       ))}
     </div>
@@ -44,5 +57,3 @@ const TodoComponents = () => {
 };
 
 export default TodoComponents;
-
-
