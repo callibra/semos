@@ -1,12 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const db = require('./pkg/db/index');
+const db = require('./pkg/db/index'); 
 const courseRoutes = require('./routes/courseRoutes');
 const academyRoutes = require('./routes/academyRoutes');
 
 const app = express();
 
 db.init();
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -24,5 +26,4 @@ app.listen(process.env.PORTAUTH, (err) => {
       console.log('Could not start service');
     }
     console.log(`service started successfully on port ${process.env.PORTAUTH}`);
-  });
-
+});

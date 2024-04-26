@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 //* npm install dotenv
 const dotenv = require('dotenv');
 
-dotenv.config({ path: `${__dirname}/../config/config.env` });
+dotenv.config({ path: `${__dirname}/../config/config.env`});
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
