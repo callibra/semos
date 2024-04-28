@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "author": "Filip",
+      "post": "Hello, this is a sample post."
+    },
+    {
+      "id": 2,
+      "author": "Test",
+      "post": "This is another post."
+    },
+    {
+      "id": 3,
+      "author": "John",
+      "post": "This is John's post."
+    },
+    {
+      "id": 4,
+      "author": "Alice",
+      "post": "Alice's post here."
+    },
+    {
+      "id": 5,
+      "author": "Filip",
+      "post": "123"
+    },
+    {
+      "id": 6,
+      "author": "555",
+      "post": "555"
+    },
+    {
+      "id": 7,
+      "author": "55555",
+      "post": "5555"
+    }
+  ]
+}
