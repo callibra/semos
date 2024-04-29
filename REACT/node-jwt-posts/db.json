@@ -3,12 +3,12 @@
     {
       "id": 1,
       "author": "Filip",
-      "post": "Hello, this is a sample post."
+      "post": "Filip"
     },
     {
       "id": 2,
       "author": "Test",
-      "post": "This is another post."
+      "post": "78978978"
     },
     {
       "id": 3,
@@ -17,23 +17,8 @@
     },
     {
       "id": 4,
-      "author": "Alice",
-      "post": "Alice's post here."
-    },
-    {
-      "id": 5,
-      "author": "Filip",
+      "author": "123",
       "post": "123"
-    },
-    {
-      "id": 6,
-      "author": "555",
-      "post": "555"
-    },
-    {
-      "id": 7,
-      "author": "55555",
-      "post": "5555"
     }
   ]
 }
