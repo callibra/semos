@@ -1,20 +1,18 @@
-//* npm install mongoose
-const mongoose = require('mongoose');
-//* npm install dotenv
-const dotenv = require('dotenv');
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
-dotenv.config({ path: `${__dirname}/../config/config.env`});
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.join(__dirname, '..', 'config', 'config.env') });
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
-exports.init = async () => {
+export const init = async () => {
   try {
     await mongoose.connect(DB);
-    console.log('Successfully connected to database');
+    console.log('Successfully connected to MongoDB database');
   } catch (err) {
-    console.log(err.message);
+    console.error('Error connecting to MongoDB:', err.message);
   }
 };

@@ -1,29 +1,34 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const db = require('./pkg/db/index'); 
-const courseRoutes = require('./routes/courseRoutes');
-const academyRoutes = require('./routes/academyRoutes');
+import express from 'express';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import { init as initDB } from './pkg/db/index.js';
+import courseRoute from './routes/courseRoute.js';
+import academyRoute from './routes/academyRoute.js';
 
-const app = express();
+async function startApp() {
+  try {
+    await initDB();
 
-db.init();
+    dotenv.config();
 
-app.use(express.json());
+    const app = express();
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('Failed to connect to MongoDB', err));
+    app.use(bodyParser.json());
 
-app.use('/courses', courseRoutes);
-app.use('/academies', academyRoutes);
+    app.use(express.urlencoded({ extended: true }));
 
-app.listen(process.env.PORTAUTH, (err) => {
-    if (err) {
-      console.log('Could not start service');
-    }
-    console.log(`service started successfully on port ${process.env.PORTAUTH}`);
-});
+    app.use(courseRoute);
+    app.use(academyRoute);
+
+    const PORT = process.env.PORT;
+
+    app.listen(PORT, () => {
+      console.log(`Service started on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('App not start:', error);
+    process.exit(1);
+  }
+}
+
+startApp();
