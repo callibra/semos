@@ -1,2 +1,2 @@
 node_modules
-.env \pkg\config\config.env
+pkg\config\config.env
