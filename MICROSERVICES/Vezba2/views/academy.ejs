@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Academies</title>
+    <link rel="stylesheet" href="../../Vezba2/public/css/style.css">
+</head>
+<body>
+    <h1>All Academies</h1>
+    <ul>
+        <% academies.forEach(academy => { %>
+            <li><%= academy.name %> - <%= academy.type %> - <%= academy.duration %> months</li>
+        <% }); %>
+    </ul>
+</body>
+</html>

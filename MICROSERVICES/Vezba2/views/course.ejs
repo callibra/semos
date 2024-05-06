@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses</title>
+    <link rel="stylesheet" href="../../Vezba2/public/css/style.css">
+</head>
+<body>
+    <h1>All Courses</h1>
+    <ul>
+        <% courses.forEach(course => { %>
+            <li><%= course.name %> - <%= course.type %> - <%= course.duration %> hours</li>
+        <% }); %>
+    </ul>
+</body>
+</html>
