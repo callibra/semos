@@ -1,61 +1,66 @@
-import Academy from '../model/academyModel.js';
+import Academy from "../model/academyModel.js";
 
-// Create new Academy
+// Render funkcija za prikazuvanje na EJS stranite
+const renderPage = (res, page, data) => {
+    res.render(page, data);
+};
+
+// Kontrolor za kreiranje (ADD NEW ACADEMY)
 export const createAcademy = async (req, res) => {
     try {
-        const academyData = new Academy(req.body);
-        const { email } = academyData;
-        const academyExist = await Academy.findOne({ email });
-        if (academyExist) {
-            return res.status(400).json({ message: "Academy already exists." });
+        const newAcademy = new Academy(req.body);
+        const validationError = newAcademy.validateSync();
+        if (validationError) {
+            const errorMessage = Object.values(validationError.errors).map(error => error.message).join(', ');
+            return renderPage(res, 'academy', { academys: [], message: errorMessage });
         }
-        const savedAcademy = await academyData.save();
-        res.status(200).json(savedAcademy);
+        const savedAcademy = await newAcademy.save();
+        res.redirect('/academy/getallacademys?successMessage=Academy successfully created.');
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        return renderPage(res, 'academy', { academys: [], message: error.message });
     }
 };
 
-// Get all create Academy
+// Kontrolor za listanje (ALL ACADEMY)
 export const fetchAcademies = async (req, res) => {
     try {
-        const academies = await Academy.find();
-        if (academies.length === 0) {
-            return res.status(404).json({ message: "Academy not found." });
+        const academys = await Academy.find();
+        if (academys.length === 0) {
+            return renderPage(res, 'academy', { academys: [], message: "Academy not found.", successMessage: req.query.successMessage });
         }
-        res.status(200).json(academies);
+        renderPage(res, 'academy', { academys, successMessage: req.query.successMessage });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).send({ message: error.message });
     }
 };
 
-// Update Academy
+// Kontrolor za editiranje (UPDATE)
 export const updateAcademy = async (req, res) => {
     try {
         const id = req.params.id;
         const academyExist = await Academy.findOne({ _id: id });
         if (!academyExist) {
-            return res.status(404).json({ message: "Academy not found." });
+            return renderPage(res, 'academy', { academys: [], message: "Academy not found.", successMessage: req.query.successMessage });
         }
         const updatedAcademy = await Academy.findByIdAndUpdate(id, req.body, { new: true });
-        res.status(200).json(updatedAcademy);
+        res.redirect('/academy/getallacademys?successMessage=Academy successfully updated.&type=update-academy');
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        renderPage(res, 'academy', { academys: [], message: error.message });
     }
 };
 
-// Delete Academy
+// Kontrolor za brisenje (DELETE)
 export const deleteAcademy = async (req, res) => {
     try {
         const id = req.params.id;
-        const academyExist = await Academy.findOne({ _id: id });
+        const academyExist = await Academy.findById(id);
         if (!academyExist) {
-            return res.status(404).json({ message: "Academy not found." });
+            return renderPage(res, 'academy', { academys: [], message: "Academy not found." });
         }
         await Academy.findByIdAndDelete(id);
-        res.status(200).json({ message: "Academy deleted successfully." });
+        const academys = await Academy.find();
+        res.redirect('/academy/getallacademys?successMessage=Academy successfully deleted.&type=delete-academy');
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
-

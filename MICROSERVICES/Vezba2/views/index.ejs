@@ -3,14 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="../../Vezba2/public/css/style.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Welcome to our Academy and Course Management System</h1>
-    <ul>
-        <li><a href="/academy/getallacademies">View All Academies</a></li>
-        <li><a href="/course/getallcourses">View All Courses</a></li>
-    </ul>
+    <nav class="menu">
+        <h1>Welcome to our Education Platform</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/academy/getallacademys">View Academies</a></li>
+            <li><a href="/course/getallcourses">View Courses</a></li>
+        </ul>
+    </nav>
+    <h1>All Academies</h1>
+    <% if(academys && academys.length > 0) { %>
+        <ul class="listing">
+            <% academys.forEach(academy => { %>
+                <li class="academy-item">
+                    <p><strong style="color: blue;">Title:</strong> <%= academy.name %></p>
+                    <p><strong style="color: red;">Email:</strong> <%= academy.email %></p>
+                    <p><strong style="color: green;">Type:</strong> <%= academy.type %> akademy</p>
+                    <p><strong style="color: orange;">Duration:</strong> <%= academy.duration %> months</p>
+                    <p><strong style="color: purple;">Description:</strong> <%= academy.description %></p>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+    <% if(!academys || academys.length === 0) { %>
+        <p class="problem-message"><%= academyMessage %></p>
+    <% } %>
+   <hr>
+    <h1>All Courses</h1>
+    <% if(courses && courses.length > 0) { %>
+        <ul class="listing">
+            <% courses.forEach(course => { %>
+                <li class="course-item">
+                    <p><strong style="color: blue;">Title:</strong> <%= course.name %></p>
+                    <p><strong style="color: red;">Email:</strong> <%= course.email %></p>
+                    <p><strong style="color: green;">Type:</strong> <%= course.type %> course</p>
+                    <p><strong style="color: orange;">Duration:</strong> <%= course.duration %> months</p>
+                </li>
+            <% }); %>
+        </ul>
+    <% } %>
+    <% if(!courses || courses.length === 0) { %>
+        <p class="problem-message"><%= courseMessage %></p>
+    <% } %>
 </body>
 </html>

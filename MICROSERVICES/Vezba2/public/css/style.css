@@ -1,27 +1,256 @@
-/* style.css */
-
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: -webkit-linear-gradient(45deg, rgb(255, 255, 255), rgb(214, 214, 214));
 }
 
 h1 {
-    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 ul {
     list-style-type: none;
-    padding: 0;
+    padding: 20px;
 }
 
 li {
+    background-color: #f9f9f9;
+    padding: 20px;
     margin-bottom: 10px;
+    border-radius: 8px;
 }
 
-a {
-    color: blue;
+p {
+    margin: 0;
+}
+
+.course-item, .academy-item {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-item:hover, .academy-item:hover {
+    transform: scale(1.01); 
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
+}
+
+.course-item p, .academy-item p {
+    margin: 10px 0;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.edit-form {
+    display: none;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white; 
+    margin-right: 10px; 
+    float: right; 
+}
+
+.delete-button:hover {
+    background-color: #cc0000; 
+}
+
+.edit-button {
+    background-color: #4CAF50; 
+    color: white; 
+}
+
+.edit-button:hover {
+    background-color: #45a049; 
+}
+
+.update-button {
+    background-color: #008CBA; 
+    color: white; 
+}
+
+.update-button:hover {
+    background-color: #006080; 
+}
+
+.menu {
+    background-color: #34495e; 
+    padding: 10px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.menu h1 {
+    color: #fff;
+    margin: 0;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+}
+
+.menu h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu ul li {
+    margin-left: 5px; 
+    padding: 5px;
+}
+
+.menu ul li a {
+    color: #1c3a79;
     text-decoration: none;
+    padding: 3px; 
+    border-radius: 2px; 
+    transition: background-color 0.3s, color 0.3s;
 }
 
-a:hover {
-    text-decoration: underline;
+.menu ul li a:hover {
+    color: #1c5db3;
+    text-decoration: none;
+    padding: 5px; 
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.add-button {
+    background-color: #008CBA; 
+    color: white; 
+}
+
+.add-button:hover{
+    background-color: #006080;
+}
+
+#add-new {
+    background-color: #ba8800;
+    color: white;
+    margin-left: 20px; 
+}
+
+#add-new:hover {
+    background-color: #805300; 
+}
+
+.add-form {
+    display: none;
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin: 5px 88px;
+}
+
+.notification-message {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.notification-message.success {
+    background-color: #32CD32; 
+}
+
+.notification-message.error {
+    background-color: #FF0000; 
+}
+
+.problem-message {
+    background-color: #f44336; 
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    margin:20px;
+    font-size: 20px; 
+    margin-top: 20px;
+}
+
+.academy-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    border-radius: 5px;
+    padding: 20px;
+    gap: 15px;
+}
+
+.course-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    border-radius: 5px;
+    padding: 20px;
+    gap: 15px;
+}
+
+.listing{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    border-radius: 5px;
+    padding: 20px;
+    gap: 15px;
 }

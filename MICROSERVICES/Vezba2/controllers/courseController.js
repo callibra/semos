@@ -1,60 +1,66 @@
 import Course from "../model/courseModel.js";
 
-// Create new Course
+// Render funkcija za prikazuvanje na EJS stranite
+const renderPage = (res, page, data) => {
+    res.render(page, data);
+};
+
+// Kontrolor za kreiranje (ADD NEW COURSE)
 export const createCourse = async (req, res) => {
     try {
-        const courseData = new Course(req.body);
-        const { email } = courseData;
-        const courseExist = await Course.findOne({ email });
-        if (courseExist) {
-            return res.status(400).json({ message: "Course already exists." });
+        const newCourse = new Course(req.body);
+        const validationError = newCourse.validateSync();
+        if (validationError) {
+            const errorMessage = Object.values(validationError.errors).map(error => error.message).join(', ');
+            return renderPage(res, 'course', { courses: [], message: errorMessage });
         }
-        const savedCourse = await courseData.save();
-        res.status(200).json(savedCourse);
+        const savedCourse = await newCourse.save();
+        res.redirect('/course/getallcourses?successMessage=Course successfully created.');
     } catch (error) {
-        res.status(500).send({ message: error.message }); ;
+        return renderPage(res, 'course', { courses: [], message: error.message });
     }
 };
 
-// Get all create Course
+// Kontrolor za listanje (ALL COURSE)
 export const fetchCourses = async (req, res) => {
     try {
         const courses = await Course.find();
         if (courses.length === 0) {
-            return res.status(404).json({ message: "Course not found." });
+            return renderPage(res, 'course', { courses: [], message: "Course not found.", successMessage: req.query.successMessage });
         }
-        res.status(200).json(courses);
+        renderPage(res, 'course', { courses, successMessage: req.query.successMessage });
     } catch (error) {
-        res.status(500).send({ message: error.message }); ;
+        res.status(500).send({ message: error.message });
     }
 };
 
-// Update Course
+// Kontrolor za editiranje (UPDATE)
 export const updateCourse = async (req, res) => {
     try {
         const id = req.params.id;
         const courseExist = await Course.findOne({ _id: id });
         if (!courseExist) {
-            return res.status(404).json({ message: "Course not found." });
+            return renderPage(res, 'course', { courses: [], message: "Course not found.", successMessage: req.query.successMessage });
         }
         const updatedCourse = await Course.findByIdAndUpdate(id, req.body, { new: true });
-        res.status(200).json(updatedCourse);
+        res.redirect('/course/getallcourses?successMessage=Course successfully updated.&type=update-course');
     } catch (error) {
-        res.status(500).send({ message: error.message }); 
+        renderPage(res, 'course', { courses: [], message: error.message });
     }
 };
 
-// Delete Course
+// Kontrolor za brisenje (DELLETE)
 export const deleteCourse = async (req, res) => {
     try {
         const id = req.params.id;
-        const courseExist = await Course.findOne({ _id: id });
+        const courseExist = await Course.findById(id);
         if (!courseExist) {
-            return res.status(404).json({ message: "Course not found." });
+            return renderPage(res, 'course', { courses: [], message: "Course not found." });
         }
         await Course.findByIdAndDelete(id);
-        res.status(200).json({ message: "Course deleted successfully." });
+        const courses = await Course.find();
+        res.redirect('/course/getallcourses?successMessage=Course successfully deleted.&type=delete-course');
     } catch (error) {
-        res.status(500).send({ message: error.message }); 
+        res.status(500).json({ error: error.message });
     }
 };

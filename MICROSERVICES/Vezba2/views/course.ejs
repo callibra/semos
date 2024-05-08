@@ -4,14 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Courses</title>
-    <link rel="stylesheet" href="../../Vezba2/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+    <nav class="menu">
+        <h1>Welcome to our Education Platform</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/academy/getallacademys">View Academies</a></li>
+            <li><a href="/course/getallcourses">View Courses</a></li>
+        </ul>
+    </nav>
+    <div id="notification">
+    <% if(typeof successMessage !== 'undefined' && successMessage) { %>
+        <div class="success-message"><%= successMessage %></div>
+    <% } else if(typeof errorMessage !== 'undefined' && errorMessage) { %>
+        <div class="error-message"><%= errorMessage %></div>
+    <% } %>
+    </div>
     <h1>All Courses</h1>
-    <ul>
-        <% courses.forEach(course => { %>
-            <li><%= course.name %> - <%= course.type %> - <%= course.duration %> hours</li>
-        <% }); %>
-    </ul>
+    <button id="add-new" onclick="showAddForm()">Add New Course</button>
+    <div id="addForm" class="add-form" style="display: none;">
+        <form action="/course/create" method="POST">
+            <h2>Add New Course</h2>
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="type" placeholder="Type">
+            <input type="number" name="duration" placeholder="Duration">
+            <button type="submit" class="add-button">Add</button>
+        </form>
+    </div>
+    <% if(courses && courses.length > 0) { %>
+        <ul class="course-list">
+            <% courses.forEach(course => { %>
+                <li class="course-item">
+                    <p><strong style="color: blue;">Title:</strong> <%= course.name %></p>
+                    <p><strong style="color: red;">Email:</strong> <%= course.email %></p>
+                    <p><strong style="color: green;">Type:</strong> <%= course.type %> course</p>
+                    <p><strong style="color: orange;">Duration:</strong> <%= course.duration %> months</p>
+                    <form action="/course/delete/<%= course._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete-button">Delete</button>
+                    </form>                    
+                    <button onclick="showEditForm('<%= course._id %>')">Edit</button>
+                    <div id="editForm<%= course._id %>" class="edit-form" style="display: none;">
+                        <form id="form<%= course._id %>" action="/course/update/<%= course._id %>?_method=PUT" method="POST">
+                            <h2>Update Course</h2>
+                            <input type="text" name="name" placeholder="New Name" value="<%= course.name %>">
+                            <input type="email" name="email" placeholder="New Email" value="<%= course.email %>">
+                            <input type="text" name="type" placeholder="New Type" value="<%= course.type %>">
+                            <input type="number" name="duration" placeholder="New Duration" value="<%= course.duration %>">
+                            <button type="submit" class="update-button">Update</button>
+                        </form>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p class="problem-message"><%= message %></p>
+    <% } %>
+    <script src="/js/main.js"></script>
 </body>
 </html>
