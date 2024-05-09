@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
+initDB();
 dotenv.config();
 
 // Index Route
@@ -37,12 +38,5 @@ app.delete("/course/delete/:id", deleteCourse);
 const PORT = process.env.PORT;
 
 app.listen(PORT, async () => {
-  try {
-    await initDB();
-    console.log(`Service started on port ${PORT}`);
-  } 
-  catch (error) {
-    console.error('App not start:', error);
-    process.exit(1);
-  }
+  console.log(`Service started on port ${PORT}`);
 });
