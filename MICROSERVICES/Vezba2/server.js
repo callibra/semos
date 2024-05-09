@@ -40,3 +40,7 @@ const PORT = process.env.PORT;
 app.listen(PORT, async () => {
   console.log(`Service started on port ${PORT}`);
 });
+
+app.on('error', (err) => {
+  console.error('Error starting the server:', err);
+});
